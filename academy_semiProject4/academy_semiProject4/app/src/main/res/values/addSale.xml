@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="addSaleList">
+        <item>월세</item>
+        <item>전세</item>
+    </string-array>
+</resources>

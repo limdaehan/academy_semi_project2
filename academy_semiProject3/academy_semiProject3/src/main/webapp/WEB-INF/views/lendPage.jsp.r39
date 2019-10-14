@@ -1,0 +1,267 @@
+<%@page import="project.ClientVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Insert title here</title>
+   
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+   <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+   
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="//code.jquery.com/jquery.min.js"></script>
+   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+   <link rel="stylesheet" href="//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
+   <script src='//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
+   
+   <!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="resources/css/mdb.min.css" rel="stylesheet">
+<!--êµ¬ê¸ ê¸ì í°í¸-->
+<link
+	href="https://fonts.googleapis.com/css?family=Single+Day&display=swap"
+	rel="stylesheet">
+
+<style>
+.ui-timepicker {
+   font-size: 12px;
+   width: 80px;
+}
+#tablestyle{
+position:relative;
+z-index: 10;
+}
+</style>
+
+</head>
+<body>
+<!-- Navigation & Intro -->
+  <header>
+    <!-- Intro Section -->
+    <section class="view intro-4"
+      style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
+      id="home">
+      <div class="mask rgba-indigo-light"></div>
+
+      <!-- Card 흰색 -->
+      <div class="card card-cascade wider reverse">
+
+        <!-- Card content -->
+        <div class="card-body card-body-cascade ">
+
+          <!--Section: Contact v.1-->
+          <section class="section pb-5" id="allcontext">
+
+            <!--Section heading-->
+            <h2 class="section-heading h1 pt-4 text-center">주차장 공유하기</h2>
+            <!--Section description-->
+            <p class="section-description pb-4 text-center">여러분이 회사를 가거나 여행을 다닐때 비어있는 주차장을 통해서 경제적으로 이득을 보세요 저희 공주님은
+              여러분의 주차장을 공유해드립니다</p>
+
+            <div class="row">
+
+              <!--Grid column-->
+              <div class="col-lg-5 mb-4">
+
+                <!--Form with header-->
+                <div class="card">
+
+                  <div class="card-body">
+                    <!--Header-->
+                    <div class="form-header warning-color accent-1">
+                      <h3><i class="fas fa-parking"></i> 빌려주기</h3>
+                    </div>
+
+                    <p>공유 가능한 여러분의 주차 공간과 날짜 시간 금액을 입력해주세요</p>
+                    <br>
+
+                    <i class="far fa-calendar-check light-blue-text fa-2x"></i>
+                    <br>
+                   
+                    <table id="tablestyle">
+   <tr>
+   <tr><th>시작날짜<input type="text" name="start_day" id="fromDate">시간<input type="text" name="start_time" id='timepicker1'><i class="far fa-hand-point-right fa-2x"></i></th></tr>
+   <tr><th>끝나는 날짜<input type="text" name="end_day" id="toDate">시간<input type="text"  name="end_time" id='timepicker2'></th></tr>
+   
+   </tr>
+    
+</table>
+
+                    <!--Body-->
+
+                    <br><br>
+
+                    <div class="md-form"><i class="fas fa-dollar-sign prefix green-text"></i>
+
+                      <input type="text" id="form-email" class="form-control"  name="price">
+                      <label for="form-email">주차 10분당 가격을 입력해주세요 (원)</label>
+                    </div><br>
+
+
+
+                    <div class="text-center mt-4">
+                    <input type="submit" class="btn btn-warning" value="등록하기">
+                    
+                     
+                    </div>
+
+
+
+                  </div>
+
+                </div>
+                <!--Form with header-->
+
+                <!--Grid column-->
+              </div>
+              
+              <!--Grid column-->
+              <div class="col-lg-7" id="ssss">
+
+                <!--Google map
+                <div id="map" class="z-depth-1-half map-container-6" style="height: 400px">
+                  <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                
+                <p style="margin-top:-12px">
+                -->
+    <em class="link">
+        <!-- <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+            혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+        </a> -->
+    </em>
+</p>
+<div id="map" style="width:100%;height:350px;"></div>
+                
+
+                <br>
+                <!--Buttons-->
+                <div class="row">
+                  <div class="col-1"></div>
+                  <input class="col-9" type="text"  id="adress">
+
+                  <div class="col-2" >
+                    <a class="btn-floating warning-color accent-1" > <i class="fas fa-map-marked-alt" onclick="searchPlace()" ></i> </a>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+
+
+    </section>
+    <!--Section: Contact v.1-->
+
+    </div>
+
+    </div>
+    <!-- Card -->
+</header>
+<% ClientVO vo = (ClientVO)session.getAttribute("vo");  %>
+   <!-- 한상이형
+   <form name=address method=post action=addParkingLot.do />
+   <div id="lonlat"></div>
+   <input type="hidden" name="mobile" value="<%=vo.getMobile() %>"/>
+<table>
+   <tr>
+   <tr><th>시작날짜<input type="text" name="start_day" id="fromDate">시간<input type="text" name="start_time" id='timepicker1'></th></tr>
+   <tr><th>끝나는 날짜<input type="text" name="end_day" id="toDate">시간<input type="text"  name="end_time" id='timepicker2'></th></tr>
+   <tr><th>가격(10분 당)<input type="text" name="price" value="가격"></th></tr>
+   </tr>
+    
+</table>
+<input type="submit" value="등록하기">
+</form>
+
+주차장 주소<textarea id="adress" ></textarea>
+<input type="button" onclick="searchPlace()" value="찾기"/> 
+
+<p style="margin-top:-12px">
+    <em class="link">
+        <!-- <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+            혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+        </a> -->
+    </em>
+</p>
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=28df0e330a1fae6da72324685f22a583&libraries=services"></script>
+<script>
+function addLonlat(y,x,adress){
+   $('#lonlat').html('<input type="hidden" name="y" value="'+y+'"/><input type="hidden" name="x" value="'+x+'"/><input type="hidden" name="adress" value="'+adress+'"/>')
+}
+function searchPlace(){
+   var adress = document.getElementById('adress').value;
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+
+   
+   geocoder.addressSearch("'"+adress+"'", function(result, status) {
+      var adress = document.getElementById('adress').value;
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      addLonlat(result[0].y, result[0].x,adress);
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">공주님</div>'
+        });
+        infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});
+}
+</script>
+
+
+<script type="text/javascript">
+$(function() {
+    $("#fromDate, #toDate").datepicker({
+        dateFormat: 'yy.mm.dd'
+    });
+});
+
+$(function() {
+    $('#timepicker1, #timepicker2').timepicker();
+});
+
+</script>
+
+</body>
+</html>

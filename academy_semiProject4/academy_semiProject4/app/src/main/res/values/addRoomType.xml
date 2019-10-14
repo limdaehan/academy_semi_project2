@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="addRoomTypeList">
+        <item>원 룸</item>
+        <item>투 룸</item>
+        <item>쓰리룸</item>
+
+
+
+    </string-array>
+
+
+</resources>

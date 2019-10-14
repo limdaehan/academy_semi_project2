@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="addRoomSizeList">
+        <item>20평</item>
+        <item>22평</item>
+        <item>25평</item>
+        <item>27평</item>
+        <item>30평</item>
+        <item>32평</item>
+        <item>37평</item>
+        <item>42평</item>
+
+    </string-array>
+
+</resources>

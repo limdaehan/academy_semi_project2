@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="matchSaleList">
+        <item>월세</item>
+
+        <item>전세</item>
+    </string-array>
+
+    <string-array name="matchSaleList2">
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+
+    </string-array>
+
+
+    <string-array name="matchSaleList3">
+
+        <item>1500</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+    </string-array>
+
+    <string-array name="matchGenderList">
+        <item>남성</item>
+        <item>여성</item>
+
+    </string-array>
+
+    <string-array name="matchPersonalityList">
+        <item>차분함</item>
+        <item>활발함</item>
+        <item>시끄러움</item>
+        <item>인싸</item>
+        <item>아싸</item>
+
+
+    </string-array>
+
+
+    <string-array name="matchRoomSizeList">
+        <item>20평</item>
+        <item>22평</item>
+        <item>25평</item>
+        <item>27평</item>
+        <item>30평</item>
+        <item>32평</item>
+        <item>37평</item>
+        <item>42평</item>
+
+    </string-array>
+
+
+    <string-array name="matchRoomTypeList">
+        <item>원 룸</item>
+        <item>투 룸</item>
+        <item>쓰리룸</item>
+    </string-array>
+
+
+    <string-array name="matchRoomMate">
+        <item>matchPersonality</item>
+        <item>matchRoomType</item>
+        <item>matchGender</item>
+        <item>matchPrice</item>
+    </string-array>
+
+
+    <string-array name="matchRoomMatePersonality">
+        <item>차분함</item>
+        <item>활발함</item>
+        <item>시끄러움</item>
+        <item>인싸</item>
+        <item>아싸</item>
+    </string-array>
+
+    <string-array name="matchRoomMateRoomType">
+        <item>원 룸</item>
+        <item>투 룸</item>
+        <item>쓰리룸</item>
+    </string-array>
+
+    <string-array name="matchRoomMateGender">
+        <item>남성</item>
+        <item>여성</item>
+    </string-array>
+
+    <string-array name="matchRoomMateRoom">
+        <item>월세</item>
+        <item>전세</item>
+    </string-array>
+    <string-array name="matchPersonSize">
+        <item>명</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
+
+
+</resources>

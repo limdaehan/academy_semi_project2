@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper-project">
+
+	<insert id="addParkingLot" parameterType="project.LenderVO">
+		insert into lender(LENDERID, ADRESS, CLIENT_MOBILE, AVAILABLE_START_DAY,
+		AVAILABLE_END_DAY, AVAILABLE_START_TIME, AVAILABLE_END_TIME,
+		PARKING_AREA_LONGITUDE, PARKING_AREA_LATITUTE, PRICE_PER_30MIN)
+		values (lender_seq.nextval, #{adress}, #{mobile}, #{start_day}, #{end_day},
+		#{start_time}, #{end_time}, #{y}, #{x}, #{price})
+	</insert>
+
+
+
+	<insert id="addClientVO" parameterType="project.ClientVO">
+		insert into client(client_id, client_name, client_password, client_mobile,
+		client_address, client_car_num, bank_name, bank_account)
+		values (client_seq.nextval, #{name}, #{password}, #{mobile}, #{address},
+		#{carNum}, #{bankName}, #{accountNumber})
+	</insert>
+	
+	
+	
+	<insert id="addLoanerVO" parameterType="project.LoanerVO">
+		insert into loaner(client_mobile, client_car_num, start_day, end_day,
+		start_time, end_time, lenderid, loanerid)
+		values (#{clientMobile}, #{clientCarNum}, #{startDay}, #{endDay},
+		#{startTime}, #{endTime}, #{lenderId}, loanid_seq.nextval)
+	</insert>
+
+
+	<select id="checkClientVO1" resultType="project.ClientVO"
+		parameterType="String">
+
+		select client_id ClientId, client_name name,
+		client_password password, client_mobile mobile, client_address
+		address, client_car_num carNum, bank_name bankName, bank_account
+		accountNumber
+		from client
+		where
+		client_mobile = #{mobile}
+
+	</select>
+
+	<select id="checkClientVO2" resultType="project.ClientVO"
+		parameterType="String">
+
+		select client_id ClientdId, client_name name,
+		client_password password, client_mobile mobile, client_address
+		address, client_car_num carNum, bank_name bankName, bank_account
+		accountNumber
+		from client
+		where
+		client_password = #{password}
+
+	</select>
+
+<select id="checkClientVO3" resultType="project.ClientVO" parameterType="String">
+
+		select client_id ClientdId, client_name name, client_password password, client_mobile mobile, client_address address, client_car_num carNum, bank_name bankName, bank_account accountNumber
+		from client
+		where
+		bank_account = #{accountNumber}
+		
+	</select>
+
+	<select id="searchParkingLot" resultType="project.LenderVO"
+		parameterType="String">
+
+		select ADRESS adress, CLIENT_MOBILE mobile,
+		AVAILABLE_START_DAY start_day, AVAILABLE_END_DAY end_day,
+		AVAILABLE_START_TIME start_time, AVAILABLE_END_TIME end_time,
+		PARKING_AREA_LONGITUDE x, PARKING_AREA_LATITUTE y, PRICE_PER_30MIN
+		price, LenderId lenderId
+		from lender
+		where
+		adress like '%' || #{search} || '%'
+
+	</select>
+	
+	<select id="searchLoaner" resultType="project.LoanerVO"
+		parameterType="String">
+
+		select
+			LOANERID loanerId,
+			CLIENT_MOBILE mobile,
+			START_DAY startDay,
+			END_DAY endDay,
+			START_TIME startTime,
+			END_TIME endTime,
+			TOTAL_USAGE_FEE totalFee
+
+		from LOANER
+		where
+		lenderId like '%' || #{search} || '%'
+
+	</select>
+	
+   
+   <!-- check time -->
+   <select id="getLenderData" resultType="project.LenderVO" parameterType="int">
+		select AVAILABLE_START_DAY start_day, AVAILABLE_END_DAY end_day, AVAILABLE_START_TIME start_time, AVAILABLE_END_TIME end_time, LENDERID lenderId
+		from lender
+		where
+		LENDERID = #{lenderId}
+	</select>
+	
+	<select id="getLoanerListByLenderId" resultType="project.LoanerVO" parameterType="int">
+		select CLIENT_MOBILE mobile, CLIENT_CAR_NUM carNum, START_DAY startDay, END_DAY endDay, START_TIME startTime, END_TIME endTime, TOTAL_USAGE_FEE totalFee, CLIENT_CAR_IMG carImg, LOANERID , LENDERID
+		from loaner
+		where
+		LENDERID = #{lenderId}
+	</select>
+   
+  	<!-- 사용자가 올린 주차장 리스트 -->
+	<select id="myInfoLenderList" resultType="project.LenderVO" parameterType="String">
+		select
+			LENDERID lenderId,
+			ADRESS adress,
+			CLIENT_MOBILE mobile,
+			AVAILABLE_START_DAY start_day,
+			AVAILABLE_END_DAY end_day,
+			AVAILABLE_START_TIME start_time,
+			AVAILABLE_END_TIME end_time,
+			PARKING_AREA_LATITUTE x,
+			PARKING_AREA_LONGITUDE y,
+			PRICE_PER_30MIN price
+
+		from LENDER
+		where CLIENT_MOBILE = #{mobile}
+	</select>
+
+	
+	<!-- loaner 리스트 불러오기 -->
+	<select id="getMyList" resultType="project.LoanerVO" parameterType="String">
+		select
+			LOANERID loanerId,
+			CLIENT_MOBILE mobile,
+			START_DAY startDay,
+			END_DAY endDay,
+			START_TIME startTime,
+			END_TIME endTime,
+			TOTAL_USAGE_FEE totalFee
+
+
+		from LOANER
+
+		where CLIENT_MOBILE = #{clientMobile}
+	</select>
+		
+	
+	<!-- LenderUpdatePage -->
+	
+	 <select id="getLenderUpdatePage" resultType="project.LenderVO" parameterType="int">
+		select
+			LENDERID lenderId,
+			ADRESS adress,
+			CLIENT_MOBILE mobile,
+			AVAILABLE_START_DAY start_day,
+			AVAILABLE_END_DAY end_day,
+			AVAILABLE_START_TIME start_time,
+			AVAILABLE_END_TIME end_time,
+			PARKING_AREA_LATITUTE x,
+			PARKING_AREA_LONGITUDE y,
+			PRICE_PER_30MIN price
+
+		from LENDER
+		where LENDERID = #{lenderId}
+	</select>
+	 	
+	 <!-- lender 업데이트 -->
+	 
+	 <update id="getLenderUpdateById" parameterType="String">
+		update LENDER 
+			<set>
+				<if test="price != null">PRICE_PER_30MIN=#{price}</if>
+				
+			</set>		
+			where lenderId = #{lenderId}
+						 
+	</update>
+	
+	<!-- lender 리스트 삭제 -->
+	
+	<delete id="deleteLenderId" parameterType="String" >
+			Delete from LENDER
+			where lenderId = #{lenderId}
+	</delete>	
+	
+	
+	 
+</mapper>

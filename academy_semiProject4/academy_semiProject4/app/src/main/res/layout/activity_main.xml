@@ -1,0 +1,71 @@
+
+    <android.widget.LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutTmap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/length"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/transButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="대중교통" />
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="정보검색" />
+
+            <Button
+                android:id="@+id/urlButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="유알엘" />
+
+            <Button
+                android:id="@+id/phpButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="php" />
+
+            <Button
+                android:id="@+id/mainButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="메인화면" />
+
+            <Button
+                android:id="@+id/imageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="사진" />
+
+            <Button
+                android:id="@+id/googleBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="구글맵" />
+        </LinearLayout>
+    </android.widget.LinearLayout>
